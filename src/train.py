@@ -53,8 +53,8 @@ def evaluate(probs, solutions):
 net = GMS(args)
 net = net.cuda()
 
-task_name = args.task_name + '_n' + str(args.n_vars) + '_ep' + str(args.epochs) + '_nr' + 
-            str(args.n_rounds) + '_d' + str(args.dim)
+task_name = args.task_name + '_n' + str(args.n_vars) + '_ep' + str(args.epochs) + \
+            '_nr' + str(args.n_rounds) + '_d' + str(args.dim)
 log_file = open(os.path.join(args.log_dir, task_name + '.log'), 'a+')
 detail_log_file = open(os.path.join(args.log_dir, task_name + '_detail.log'), 'a+')
 
@@ -192,8 +192,8 @@ for epoch in range(start_epoch, args.epochs):
     torch.save(
         {'epoch': epoch + 1, 'var_acc': var_acc, 'obj_diff': obj_diff, 'state_dict': net.state_dict()},
         os.path.join(args.model_dir, task_name + '.pth.tar'))
-    # if var_acc >= best_var_acc:
-    #     best_var_acc = var_acc
+    if var_acc >= best_var_acc:
+        best_var_acc = var_acc
     #     torch.save(
     #         {'epoch': epoch + 1, 'var_acc': var_acc, 'obj_diff': obj_diff, 'state_dict': net.state_dict()},
     #         os.path.join(args.model_dir, task_name + '_best_var.pth.tar'))

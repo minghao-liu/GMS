@@ -20,7 +20,7 @@ def parse_data_list(data_selector_str, is_inc):
         s, v, c, i, j = data_item
         for _ in range(i, j+1):
             dimacs_file = os.path.join("s{}v{}c{}".format(s, v, c), "s{}v{}c{}-{}.cnf".format(s, v, c, _))
-            sol_file = os.path.join('sol', "s{}v{}c{}-{}.cnf.maxhs.sol".format(s, v, c, _))
+            sol_file = os.path.join('sol', "s{}v{}c{}-{}.cnf.sol".format(s, v, c, _))
             data_from_files.append((dimacs_file, sol_file))
     return data_from_files, False
 

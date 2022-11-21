@@ -1,3 +1,6 @@
+# generate_data.sh
+# Should be executed after the raw data and solution have been prepared.
+#
 # NOTE:
 # Format of 'data_selector': [[clen, nvar, nclauses, id_begin, id_end], ...]
 #
